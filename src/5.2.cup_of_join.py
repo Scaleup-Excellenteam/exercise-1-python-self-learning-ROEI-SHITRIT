@@ -1,3 +1,4 @@
+"""Joins multiple lists into one, inserting a separator between them if provided."""
 def cup_of_join(*lists,sep=""):
     """
       Merges multiple lists into a single list, inserting a separator between them.
@@ -25,7 +26,7 @@ def cup_of_join(*lists,sep=""):
         return  None
     for lst in lists:
         if not isinstance(lst, list):
-            exit(-1)
+            return None
         result+=lst
         if i<len(lists) and sep != "":
             result.append(sep)
