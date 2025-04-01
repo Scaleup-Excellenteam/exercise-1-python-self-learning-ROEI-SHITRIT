@@ -1,3 +1,4 @@
+"""Extracts a hidden message from a black-and-white image based on black pixel positions."""
 from PIL import Image
 
 
@@ -37,7 +38,7 @@ def remember_remember(path):
         for row in range(height):
             pixel = image.getpixel((col, row))
             if pixel == 0:
-                result += chr(row)  
+                result += chr(row)
 
     return result
 
