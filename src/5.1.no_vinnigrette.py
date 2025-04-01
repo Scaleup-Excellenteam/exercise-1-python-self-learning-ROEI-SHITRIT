@@ -1,7 +1,7 @@
 from datetime import datetime
 import random
 
-def no_vinnigrete():
+def no_vinnigrete(date_input1, date_input2):
     """
       Prompts the user to input two dates in the format YYYY-MM-DD, and generates a random date between the two provided dates.
       If the random date falls on a Monday, it prints "אין לי וינגרט!", otherwise it prints "יש ל וינגרט".
@@ -15,16 +15,14 @@ def no_vinnigrete():
       Example:
           Enter a date (YYYY-MM-DD): 1912-06-23
           Enter a date (YYYY-MM-DD): 1954-06-07
-          If the generated date falls on a Monday, the output will be: "Ain't gettin' no vinaigrette today :("
-          
+          If the generated date falls on a Monday, the output will be: "אין לי וינגרט!"
+          If not, the output will be: "יש ל וינגרט"
       """
 
-    date_input1 = input("Enter a date (YYYY-MM-DD): ")
-    date_input2 = input("Enter a date (YYYY-MM-DD): ")
     try:
         date1 = datetime.strptime(date_input1, "%Y-%m-%d")
         date2 = datetime.strptime(date_input2, "%Y-%m-%d")
-    except ValueError:
+    except ValueError :
         print(f"Error: The date '{date_input1}' is not a valid date.")
         exit(-1)
     if date1 > date2:
@@ -69,4 +67,4 @@ def random_date(date1, date2):
             continue
 
 if __name__ == '__main__':
-    no_vinnigrete()
+    no_vinnigrete("2023-07-10", "2023-07-10")
