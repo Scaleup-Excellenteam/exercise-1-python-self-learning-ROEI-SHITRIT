@@ -1,35 +1,39 @@
+"""
+This program generates a random date between two user-provided dates.
+If the randomly chosen date falls on a Monday, it prints a specific message.
+The program consists of two main functions:
+1. `no_vinnigrete:Parses user-provided dates and checks if the randomly generated date is a Monday.
+2. `random_date: Generates a random date between two `datetime` objects.
+"""
+
 from datetime import datetime
 import random
 
 def no_vinnigrete(date_input1, date_input2):
-    """
-      Prompts the user to input two dates in the format YYYY-MM-DD, and generates a random date between the two provided dates.
-      If the random date falls on a Monday, it prints "אין לי וינגרט!", otherwise it prints "יש ל וינגרט".
+ """
+      Generates a random date between two given dates and checks if it falls on a Monday.
 
-      User inputs:
-          - Two dates in the format YYYY-MM-DD.
+      Args:
+          date_input1 (str): The first date in the format YYYY-MM-DD.
+          date_input2 (str): The second date in the format YYYY-MM-DD.
 
       Returns:
           None
 
-      Example:
-          Enter a date (YYYY-MM-DD): 1912-06-23
-          Enter a date (YYYY-MM-DD): 1954-06-07
-          If the generated date falls on a Monday, the output will be: "אין לי וינגרט!"
-          If not, the output will be: "יש ל וינגרט"
-      """
+      If the randomly generated date falls on a Monday, the function prints:
+      "Ain't gettin' no vinaigrette today :("
+    """
 
     try:
         date1 = datetime.strptime(date_input1, "%Y-%m-%d")
         date2 = datetime.strptime(date_input2, "%Y-%m-%d")
     except ValueError :
         print(f"Error: The date '{date_input1}' is not a valid date.")
-        exit(-1)
+        return None
     if date1 > date2:
         date1,date2 = date2,date1
     rand_date = random_date(date1, date2)
-    """ checking if the generated date falls on a Monday """
-    if rand_date.weekday() == 0:
+    if rand_date.weekday() == 0: # checking if the generated date falls on a Monday 
         print("Ain't gettin' no vinaigrette today :(")
 
 
@@ -57,8 +61,7 @@ def random_date(date1, date2):
         try:
             date1_epoch = date1.timestamp()
             date2_epoch = date2.timestamp()
-            """Converts the dates to epoch time (seconds since 1970) and generates a random timestamp between them."""
-            random_time_epoch = random.uniform(date1_epoch, date2_epoch)
+            random_time_epoch = random.uniform(date1_epoch, date2_epoch)#Converts the dates to epoch time (seconds since 1970) and generates a random timestamp between them.
             random_date_to_send = datetime.fromtimestamp(random_time_epoch)
             random_date_to_send.strftime("%Y-%m-%d")
             return random_date_to_send
