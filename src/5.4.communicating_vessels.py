@@ -32,18 +32,18 @@ def generator_interleave(*iterable):
 
 
 def interleave(*iterable):
-     """
-    Merges multiple iterables by interleaving their elements, skipping None values.
+    """
+     Merges multiple iterables by interleaving their elements, skipping None values.
 
-    Args:
-        *iterable: One or more iterables to be interleaved.
+     Args:
+         *iterable: One or more iterables to be interleaved.
 
-    Returns:
-        list: A list containing elements from the input iterables in an interleaved order.
+     Returns:
+         list: A list containing elements from the input iterables in an interleaved order.
 
-    Example:
-        #>>> interleave('abc', [1, 2, 3], ('!', '@', '#'))
-        ['a', 1, '!', 'b', 2, '@', 'c', 3, '#']
+     Example:
+         #>>> interleave('abc', [1, 2, 3], ('!', '@', '#'))
+         ['a', 1, '!', 'b', 2, '@', 'c', 3, '#']
     """
     return [item for it in zip_longest(*iterable) for item in it if item is not None]
 
