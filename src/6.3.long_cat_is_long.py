@@ -1,5 +1,5 @@
 import re
-def long_cat_is_long(txt):
+def count_words(txt):
     """
        Counts the length of each unique word in the given text.
 
@@ -13,9 +13,9 @@ def long_cat_is_long(txt):
            #>>> count_words("Hello world! This is a test.")
            {'hello': 5, 'world': 5, 'this': 4, 'is': 2, 'a': 1, 'test': 4}
        """
-    words = txt
+    
     words = txt.lower().split()
-    only_words = {word for word in words if re.match("^[A-Za-z]+$", word)}
+    only_words = {word[:-1] if not re.match("^[A-Za-z]+$", word) else word for word in words}
     return {word:len(word) for word in only_words}
 
 
@@ -29,4 +29,4 @@ The only difference is that there is no cat.
 """
 
 if __name__ == '__main__':
-    print(long_cat_is_long(text))
+    print(count_words(text))
