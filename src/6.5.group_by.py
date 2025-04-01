@@ -1,3 +1,4 @@
+# Categorizes elements of an iterable into groups based on the result of a function
 from collections import defaultdict
 
 
@@ -5,7 +6,8 @@ def group_by(func,iterable):
     """
        Groups elements of the iterable by the result of applying the given function to each element.
 
-       The function applies `func` to each item in the `iterable`, and uses the result as the key in the returned dictionary.
+       The function applies `func` to each item in the `iterable`,
+       and uses the result as the key in the returned dictionary.
        The value associated with each key is a list of all elements from the iterable that produced that key.
 
        Args:
@@ -24,7 +26,7 @@ def group_by(func,iterable):
     for item in iterable:
         my_dict[func(item)].append(item)
     return my_dict
-print(group_by(len, ["hi", "bye", "yo", "try"]))
+
 
 
 if __name__ == '__main__':
