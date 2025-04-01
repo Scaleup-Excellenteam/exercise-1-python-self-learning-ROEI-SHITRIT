@@ -16,7 +16,7 @@ def long_cat_is_long(txt):
 
     words = txt.lower().split()
     only_words = {
-        word[:-1] if not word[-1].isalpha() and word[:-1].isalpha() 
+        word[:-1] if not word[-1].isalpha() and word[:-1].isalpha()
         else word for word in words if word[:-1].isalpha() or word.isalpha()
     }
     return {word:len(word) for word in only_words}
@@ -32,4 +32,4 @@ The only difference is that there is no cat.
 """
 
 if __name__ == '__main__':
-    print(long_cat_is_long(text))
+    print(long_cat_is_long(TXT))
