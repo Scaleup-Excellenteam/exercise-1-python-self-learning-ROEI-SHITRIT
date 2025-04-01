@@ -15,7 +15,7 @@ def long_cat_is_long(txt):
        """
     
     words = txt.lower().split()
-    only_words = {word[:-1] if not re.match("^[A-Za-z]+$", word) else word for word in words}
+    only_words = {word[:-1] if not word[-1].isalpha() and word[:-1].isalpha() else word for word in words if word.isalpha()}
     return {word:len(word) for word in only_words}
 
 
