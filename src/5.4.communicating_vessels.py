@@ -18,13 +18,14 @@ def generator_interleave(*iterable):
     """
     i = 0
     lst_to_send = list(iterable)
+    flag = True
     try:
-        while len(lst_to_send) > 0:
+        while flag:
+            flag = False
             for item in lst_to_send:
                 if i < len(item):
+                    flag = True
                     yield item[i]
-                else:
-                    lst_to_send.remove(item)
             i += 1
     except ValueError:
         return None
