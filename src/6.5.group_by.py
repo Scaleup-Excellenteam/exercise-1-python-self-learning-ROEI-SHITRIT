@@ -1,4 +1,4 @@
-# Categorizes elements of an iterable into groups based on the result of a function
+"""Categorizes elements of an iterable into groups based on the result of a function"""
 from collections import defaultdict
 
 
