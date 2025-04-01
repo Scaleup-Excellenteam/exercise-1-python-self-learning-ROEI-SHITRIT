@@ -69,7 +69,7 @@ class PostOffice:
 
         matching_messages = [
             message for message in self.boxes[username]
-            if search_string.lower() in message['body'].lower()
+              if search_string.lower() in message['body'].lower() or search_string.lower() in message['title'].lower()
         ]
 
         return matching_messages
