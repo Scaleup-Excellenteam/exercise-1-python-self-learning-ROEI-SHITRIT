@@ -36,7 +36,7 @@ def no_vinnigrete(date_input1, date_input2):
 
     rand_date = random_date(date1, date2)
     if rand_date.weekday() == 0:  # checking if the generated date falls on a Monday
-        print("Ain't gettin' no vinaigrette today :("
+        print("Ain't gettin' no vinaigrette today :(")
 
 
 
