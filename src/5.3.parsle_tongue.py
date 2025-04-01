@@ -39,11 +39,13 @@ def parsle_tongue(path):
             world!
         """
     secret_pattern = re.compile(br'[a-z]{5,}!')
-
+    result = []
     for chunk in read_file_in_chunks(path):
         secrets = secret_pattern.findall(chunk)
         for secret in secrets:
-            print(secret.decode('utf-8'))
+            result.append((secret.decode('utf-8'))[:-1])
+
+    return result
 
 if __name__ == '__main__':
-   parsle_tongue("logo.jpg")
+   print(parsle_tongue("logo.jpg"))
