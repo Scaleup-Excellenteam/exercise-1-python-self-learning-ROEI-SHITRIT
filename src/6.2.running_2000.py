@@ -1,6 +1,6 @@
 import time
 
-def timer(func, *args, **kargs):
+def running_2000(func, *args, **kargs):
     start = time.time()
     result = func(*args, **kargs)
     end = time.time()
@@ -8,4 +8,4 @@ def timer(func, *args, **kargs):
     return end - start
 
 if __name__ == '__main__':
-   print(timer(zip, [1, 2, 3], [4, 5, 6]))
+   print(running_2000(zip, [1, 2, 3], [4, 5, 6]))
