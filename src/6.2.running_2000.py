@@ -1,10 +1,9 @@
 import time
 
-def timer(func,*values):
+def running_2000(func,*values):
     start = time.time()
-    print(x)
     end = time.time()
     return end-start
 
 if __name__ == '__main__':
-   print(timer(zip, [1, 2, 3], [4, 5, 6]))
+   print(running_2000(zip, [1, 2, 3], [4, 5, 6]))
