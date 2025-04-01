@@ -28,7 +28,7 @@ def generator_interleave(*iterable):
                     yield item[i]
             i += 1
     except ValueError:
-        return None
+        print("Value Error")
 
 
 def interleave(*iterable):
