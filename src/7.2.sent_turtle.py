@@ -100,5 +100,5 @@ class PostOffice:
 
         return matching_messages
 
-if __name__ == '__main__':      
+if __name__ == '__main__':
     office = PostOffice([])
