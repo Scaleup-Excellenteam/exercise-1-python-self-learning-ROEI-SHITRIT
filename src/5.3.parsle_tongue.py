@@ -1,5 +1,6 @@
+import os
 import re
-def read_file_in_chunks(path):
+def read_file_in_chunks():
     """
       Reads a binary file in chunks of 1024 bytes.
 
@@ -13,6 +14,7 @@ def read_file_in_chunks(path):
           FileNotFoundError: If the specified file is not found, exits with code -1.
       """
     try:
+        path = os.path.abspath('./logo.jpg')
         with open(path, "rb") as file:
             chunk_size = 1024
             chunk = 1
@@ -22,7 +24,7 @@ def read_file_in_chunks(path):
     except FileNotFoundError:
         exit(-1)
 
-def parsle_tongue(path):
+def parsle_tongue():
     """
         Extracts and prints secret messages from a binary file.
 
@@ -40,7 +42,7 @@ def parsle_tongue(path):
         """
     secret_pattern = re.compile(br'[a-z]{5,}!')
     result = []
-    for chunk in read_file_in_chunks(path):
+    for chunk in read_file_in_chunks():
         secrets = secret_pattern.findall(chunk)
         for secret in secrets:
             result.append((secret.decode('utf-8'))[:-1])
@@ -48,4 +50,4 @@ def parsle_tongue(path):
     return result
 
 if __name__ == '__main__':
-   print(parsle_tongue("logo.jpg"))
+   print(parsle_tongue())
