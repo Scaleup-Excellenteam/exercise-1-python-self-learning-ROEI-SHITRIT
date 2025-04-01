@@ -1,7 +1,7 @@
 from argparse import ArgumentError
 
 
-def get_recipe_price(prices,optionals=None,**quantities):
+def piece_of_cake(prices,optionals=None,**quantities):
     """
       Calculates the total price of ingredients for a recipe based on their quantities and prices.
 
