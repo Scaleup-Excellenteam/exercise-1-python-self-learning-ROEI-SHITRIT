@@ -39,17 +39,17 @@ class PostOffice:
             user_box.append(message_details)
         return self.message_id
 
-    def read_inbox(self,usernames,n=-1):
+    def read_inbox(self,username,n=-1):
         counter = 1
         result = []
-        if usernames not in self.boxes.keys():
+        if username not in self.boxes.keys():
             return None
-        for message_id in self.boxes[usernames]:
+        for message_id in self.boxes[username]:
             if n==counter:
                 break
-            if message_id.unread:
+            if message_id['unread']:
                 result.append(message_id)
-                message_id.unread = False
+                message_id['unread'] = False
                 counter+=1
         return result
 
