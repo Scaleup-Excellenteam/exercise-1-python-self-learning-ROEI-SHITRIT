@@ -1,4 +1,4 @@
-import re
+"""Extracts words from text and maps them to their lengths."""
 def long_cat_is_long(txt):
     """
        Counts the length of each unique word in the given text.
@@ -13,14 +13,17 @@ def long_cat_is_long(txt):
            #>>> count_words("Hello world! This is a test.")
            {'hello': 5, 'world': 5, 'this': 4, 'is': 2, 'a': 1, 'test': 4}
        """
-    
+
     words = txt.lower().split()
-    only_words = {word[:-1] if not word[-1].isalpha() and word[:-1].isalpha() else word for word in words if word[:-1].isalpha() or word.isalpha()}
+    only_words = {
+        word[:-1] if not word[-1].isalpha() and word[:-1].isalpha() 
+        else word for word in words if word[:-1].isalpha() or word.isalpha()
+    }
     return {word:len(word) for word in only_words}
 
 
 
-text = """
+TXT = """
 You see, wire telegraph is a kind of a very, very long cat.
 You pull his tail in New York and his head is meowing in Los Angeles.
 Do you understand this?
