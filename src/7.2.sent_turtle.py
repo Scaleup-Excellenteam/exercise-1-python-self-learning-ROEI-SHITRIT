@@ -11,12 +11,13 @@ class PostOffice:
         self.message_id = 0
         self.boxes = {user: [] for user in usernames}
 
-    def send_message(self, sender, recipient, message_body, urgent=False):
+    def send_message(self, sender, recipient,message_title ,message_body, urgent=False):
         """Send a message to a recipient.
 
         :param str sender: The message sender's username.
         :param str recipient: The message recipient's username.
         :param str message_body: The body of the message.
+        :param str message_title: The title of the message.
         :param urgent: The urgency of the message.
         :type urgent: bool, optional
         :return: The message ID, auto incremented number.
@@ -29,6 +30,8 @@ class PostOffice:
             'id': self.message_id,
             'body': message_body,
             'sender': sender,
+            'unread': True,
+            'title': message_title
         }
         if urgent:
             user_box.insert(0, message_details)
@@ -37,12 +40,20 @@ class PostOffice:
         return self.message_id
 
     def read_inbox(self,usernames,n=-1):
+        counter = 1
+        result = []
         if usernames not in self.boxes.keys():
             return None
-        if len(self.boxes[usernames])<=n or n<0:
-            return self.boxes[usernames]
-        else:
-            return self.boxes[usernames][:n]
+        for message_id in self.boxes[usernames]:
+            if n==counter:
+                break
+            if message_id.unread:
+                result.append(message_id)
+                message_id.unread = False
+                counter+=1
+        return result
+
+
 
     def search_inbox(self, username, search_string):
         """Search the user's inbox for messages containing the search string
