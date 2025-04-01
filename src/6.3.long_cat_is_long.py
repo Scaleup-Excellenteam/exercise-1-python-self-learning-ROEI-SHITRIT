@@ -1,5 +1,5 @@
 import re
-def count_words(txt):
+def long_cat_is_long(txt):
     """
        Counts the length of each unique word in the given text.
 
