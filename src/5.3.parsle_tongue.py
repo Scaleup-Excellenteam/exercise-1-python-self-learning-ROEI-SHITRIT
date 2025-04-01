@@ -23,7 +23,7 @@ def read_file_in_chunks():
                 chunk = file.read(chunk_size)
                 yield chunk
     except FileNotFoundError:
-        return None
+        print("file not fuond")
 
 def parsle_tongue():
     """
