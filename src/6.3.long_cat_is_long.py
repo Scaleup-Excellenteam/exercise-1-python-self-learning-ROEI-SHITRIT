@@ -29,4 +29,4 @@ The only difference is that there is no cat.
 """
 
 if __name__ == '__main__':
-    print(count_words(text))
+    print(long_cat_is_long(text))
