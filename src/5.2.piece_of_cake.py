@@ -41,5 +41,5 @@ def piece_of_cake(prices,optionals=None,**quantities):
         return
 
 if __name__ == '__main__':
-   get_recipe_price({'chocolate': 18, 'milk': 8}, chocolate=200, milk=100)
-   get_recipe_price({'chocolate': 18, 'milk': 8}, optionals=['milk'], chocolate=300)
+   piece_of_cake({'chocolate': 18, 'milk': 8}, chocolate=200, milk=100)
+   piece_of_cake({'chocolate': 18, 'milk': 8}, optionals=['milk'], chocolate=300)
