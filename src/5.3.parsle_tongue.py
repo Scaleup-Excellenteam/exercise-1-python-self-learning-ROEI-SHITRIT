@@ -1,3 +1,4 @@
+"""Extracts hidden messages from a binary file based on a specific pattern."""
 import os
 import re
 def read_file_in_chunks():
@@ -22,7 +23,7 @@ def read_file_in_chunks():
                 chunk = file.read(chunk_size)
                 yield chunk
     except FileNotFoundError:
-        exit(-1)
+        return None
 
 def parsle_tongue():
     """
@@ -50,4 +51,4 @@ def parsle_tongue():
     return result
 
 if __name__ == '__main__':
-   print(parsle_tongue())
+    print(parsle_tongue())
