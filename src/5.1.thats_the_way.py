@@ -41,4 +41,4 @@ def thats_the_way(path):
 
 
 if __name__ == '__main__':
-    thats_the_way("your_directory_path_here")  
+    thats_the_way("your_directory_path_here")
