@@ -33,4 +33,4 @@ def cup_of_join(*lists,sep="-"):
     return result
 
 if __name__ == '__main__':
-    join([1, 2], [8], [9, 5, 6], sep='@')
+    cup_of_join([1, 2], [8], [9, 5, 6], sep='@')
