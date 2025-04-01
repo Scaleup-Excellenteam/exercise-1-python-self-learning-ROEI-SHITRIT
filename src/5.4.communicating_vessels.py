@@ -19,7 +19,7 @@ def generator_interleave(*iterable):
     i = 0
     lst_to_send = list(iterable)
     try:
-        while len(lst) > 0:
+        while len(lst_to_send) > 0:
             for item in lst:
                 if i < len(item):
                     yield item[i]
