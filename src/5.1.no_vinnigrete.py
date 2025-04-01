@@ -15,8 +15,8 @@ def no_vinnigrete():
       Example:
           Enter a date (YYYY-MM-DD): 1912-06-23
           Enter a date (YYYY-MM-DD): 1954-06-07
-          If the generated date falls on a Monday, the output will be: "אין לי וינגרט!"
-          If not, the output will be: "יש ל וינגרט"
+          If the generated date falls on a Monday, the output will be: "Ain't gettin' no vinaigrette today :("
+          
       """
 
     date_input1 = input("Enter a date (YYYY-MM-DD): ")
@@ -63,7 +63,7 @@ def random_date(date1, date2):
             random_time_epoch = random.uniform(date1_epoch, date2_epoch)
             random_date_to_send = datetime.fromtimestamp(random_time_epoch)
             random_date_to_send.strftime("%Y-%m-%d")
-            return random_date
+            return random_date_to_send
 
         except ValueError:
             continue
