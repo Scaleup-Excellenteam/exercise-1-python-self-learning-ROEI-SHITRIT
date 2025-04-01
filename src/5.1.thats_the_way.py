@@ -25,7 +25,7 @@ def thats_the_way(path):
     try:
         """Using `os.scandir(path)` to efficiently scan the directory contents and retrieve file and directory information without loading all paths into memory."""
 
-        return [entry.name for entry in os.scandir(path) if entry.is_file()]
+        return [entry.name for entry in os.scandir(path) if entry.is_file() and entry.name.startswith("deep")]
     except FileNotFoundError:
         print(f"Error: The path '{path}' does not exist.")
         return []
