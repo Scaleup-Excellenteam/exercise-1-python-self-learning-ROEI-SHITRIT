@@ -27,7 +27,7 @@ def cup_of_join(*lists,sep="-"):
         if not isinstance(lst, list):
             exit(-1)
         result+=lst
-        if i<len(lists)-1:
+        if i<len(lists):
             result.append(sep)
         i += 1
     return result
