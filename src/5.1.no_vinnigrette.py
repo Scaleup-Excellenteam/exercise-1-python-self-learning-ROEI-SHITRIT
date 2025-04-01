@@ -10,7 +10,7 @@ from datetime import datetime
 import random
 
 def no_vinnigrete(date_input1, date_input2):
- """
+   """
       Generates a random date between two given dates and checks if it falls on a Monday.
 
       Args:
@@ -22,7 +22,7 @@ def no_vinnigrete(date_input1, date_input2):
 
       If the randomly generated date falls on a Monday, the function prints:
       "Ain't gettin' no vinaigrette today :("
-    """
+   """
 
     try:
         date1 = datetime.strptime(date_input1, "%Y-%m-%d")
