@@ -1,3 +1,9 @@
+""" A Post Office system that allows users to send, receive, and search messages.
+
+  send_message: Sends a message to a recipient, marking it as urgent if needed.
+  read_inbox: Retrieves a specified number of unread messages from a user's inbox.
+""" search_inbox: Searches for messages in a user's inbox based on a keyword.
+
 class PostOffice:
     """A Post Office class. Allows users to message each other.
 
@@ -40,6 +46,25 @@ class PostOffice:
         return self.message_id
 
     def read_inbox(self,username,n=-1):
+        """
+        Retrieves a specified number of unread messages from a user's inbox.
+
+        Marks messages as read after retrieval.
+
+        Args:
+            username (str): The username whose inbox will be accessed.
+            n (int, optional): The maximum number of unread messages to retrieve.
+                               Defaults to -1, which means retrieving all unread messages.
+
+        Returns:
+            list: A list of unread messages from the user's inbox.
+            None: If the username does not exist.
+
+        Example:
+            #>>> po.read_inbox("alice", 2)
+            [{'id': 1, 'body': 'Hello!', 'sender': 'bob', 'unread': False, 'title': 'Greeting'},
+             {'id': 2, 'body': 'How are you?', 'sender': 'bob', 'unread': False, 'title': 'Check-in'}]
+        """
         counter = 0
         result = []
         if username not in self.boxes.keys():
@@ -73,7 +98,5 @@ class PostOffice:
         ]
 
         return matching_messages
-
-
 
 
