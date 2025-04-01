@@ -27,7 +27,7 @@ def cup_of_join(*lists,sep=""):
         if not isinstance(lst, list):
             exit(-1)
         result+=lst
-        if i<len(lists):
+        if i<len(lists) and sep != "":
             result.append(sep)
         i += 1
     return result
