@@ -40,7 +40,7 @@ class PostOffice:
         return self.message_id
 
     def read_inbox(self,username,n=-1):
-        counter = 1
+        counter = 0
         result = []
         if username not in self.boxes.keys():
             return None
