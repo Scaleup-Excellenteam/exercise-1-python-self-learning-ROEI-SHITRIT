@@ -2,7 +2,8 @@
 
   send_message: Sends a message to a recipient, marking it as urgent if needed.
   read_inbox: Retrieves a specified number of unread messages from a user's inbox.
-""" search_inbox: Searches for messages in a user's inbox based on a keyword.
+   search_inbox: Searches for messages in a user's inbox based on a keyword.
+"""
 
 class PostOffice:
     """A Post Office class. Allows users to message each other.
