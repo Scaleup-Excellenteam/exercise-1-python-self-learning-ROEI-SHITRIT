@@ -41,5 +41,5 @@ def remember_remember(path):
 
     return result
 
-  if __name__ == '__main__':
-  print(remember_remember("code.png"))
+if __name__ == '__main__':
+    print(remember_remember("code.png"))
