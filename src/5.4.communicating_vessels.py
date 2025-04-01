@@ -1,4 +1,7 @@
-def interleave(*iterable):
+from itertools import zip_longest
+
+
+def generator_interleave(*iterable):
     """
        Mixes multiple iterables by taking one element from each in order.
 
@@ -16,7 +19,7 @@ def interleave(*iterable):
     lst=list(iterable)
     try:
      while len(lst)>0:
-        for item in iterable:
+        for item in lst:
             if i < len(item):
                 yield item[i]
             else:
@@ -25,5 +28,12 @@ def interleave(*iterable):
     except ValueError:
         exit(-1)
 
+
+def interleave(*iterable):
+
+    return [item for it in zip_longest(*iterable) for item in it if item is not None]
+
+
 if __name__ == '__main__':
-  interleave('abc', [1, 2, 3], ('!', '@', '#'))
+  print(list(generator_interleave('abc', [1, 2, 3], ('!', '@', '#','*'))))
+  print(interleave('abc', [1, 2, 3], ('!', '@', '#')))
