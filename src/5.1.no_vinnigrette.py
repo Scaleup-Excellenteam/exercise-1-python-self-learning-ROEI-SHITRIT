@@ -11,30 +11,30 @@ import random
 
 def no_vinnigrete(date_input1, date_input2):
    """
-      Generates a random date between two given dates and checks if it falls on a Monday.
-
-      Args:
-          date_input1 (str): The first date in the format YYYY-MM-DD.
-          date_input2 (str): The second date in the format YYYY-MM-DD.
-
-      Returns:
-          None
-
-      If the randomly generated date falls on a Monday, the function prints:
-      "Ain't gettin' no vinaigrette today :("
+   Generates a random date between two given dates and checks if it falls on a Monday.
+   
+   Args:
+   date_input1 (str): The first date in the format YYYY-MM-DD.
+   date_input2 (str): The second date in the format YYYY-MM-DD.
+   
+   Returns:
+   None
+   
+   If the randomly generated date falls on a Monday, the function prints:
+   "Ain't gettin' no vinaigrette today :("
    """
-
-    try:
-        date1 = datetime.strptime(date_input1, "%Y-%m-%d")
-        date2 = datetime.strptime(date_input2, "%Y-%m-%d")
-    except ValueError :
-        print(f"Error: The date '{date_input1}' is not a valid date.")
-        return None
-    if date1 > date2:
-        date1,date2 = date2,date1
-    rand_date = random_date(date1, date2)
-    if rand_date.weekday() == 0: # checking if the generated date falls on a Monday 
-        print("Ain't gettin' no vinaigrette today :(")
+   
+   try:
+     date1 = datetime.strptime(date_input1, "%Y-%m-%d")
+     date2 = datetime.strptime(date_input2, "%Y-%m-%d")
+   except ValueError :
+     print(f"Error: The date '{date_input1}' is not a valid date.")
+     return None
+   if date1 > date2:
+     date1,date2 = date2,date1
+   rand_date = random_date(date1, date2)
+   if rand_date.weekday() == 0: # checking if the generated date falls on a Monday 
+     print("Ain't gettin' no vinaigrette today :(")
 
 
 
