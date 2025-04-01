@@ -36,10 +36,10 @@ class PostOffice:
             user_box.append(message_details)
         return self.message_id
 
-    def read_inbox(self,usernames,n):
+    def read_inbox(self,usernames,n=-1):
         if usernames not in self.boxes.keys():
             return None
-        if len(self.boxes[usernames])<=n:
+        if len(self.boxes[usernames])<=n or n<0:
             return self.boxes[usernames]
         else:
             return self.boxes[usernames][:n]
