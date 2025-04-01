@@ -1,5 +1,5 @@
 from PIL import Image
-import numpy as np
+
 
 def remember_remember(path):
     """
@@ -19,20 +19,26 @@ def remember_remember(path):
            #>>> remember_remember("encrypted_message.png")
            "Hello"
        """
-    image=0
-    result =""
+  
+    result = ""
+
     try:
-        image = Image.open(path)
+        # Open the image and convert it to black and white (L mode)
+        image = Image.open(path).convert('1')  # '1' mode is for 1-bit pixels (black and white)
     except FileNotFoundError:
         exit(-1)
-    image_array = np.array(image)
-    for col in range(image_array.shape[1]):
-        row_idx = np.where(image_array[:, col] == 1)[0]
 
-        if len(row_idx) > 0:
-            result += chr(row_idx[0])  
+    # Get the width and height of the image
+    width, height = image.size
+
+    # Iterate through each column
+    for col in range(width):
+        for row in range(height):
+            pixel = image.getpixel((col, row))
+            if pixel == 0: 
+                result += chr(row)  
 
     return result
 
 if __name__ == '__main__':
-  remember_remember("code.png")
+  print(remember_remember("code.png"))
