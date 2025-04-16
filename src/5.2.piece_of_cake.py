@@ -20,27 +20,22 @@ def piece_of_cake(prices, optionals=None, **quantities):
         #>>> get_recipe_price({'chocolate': 18, 'milk': 8}, optionals=['milk'], chocolate=300)
         54.0
     """
-    sum__to_send = 0
-    try:
-        if len(prices) == 0:
-            return 0
-        for key, value in prices.items():
-            if optionals is not None and key in optionals:
-                continue
+    sum_to_send = 0
 
-            if key in quantities:
-                sum__to_send += (quantities[key] / 100) * value
+    if len(prices) == 0:
+        return 0
+    for key, value in prices.items():
+        if optionals is not None and key in optionals:
+            continue
 
-        return sum__to_send
+        if key in quantities:
+            sum_to_send += (quantities[key] / 100) * value
 
-    except TypeError:
-        print('TypeError')
-        return None
-    except ArgumentError:
-        print('ArgumentError')
-        return None
+    return sum_to_send
+
+
 
 
 if __name__ == '__main__':
-    piece_of_cake({'chocolate': 18, 'milk': 8}, chocolate=200, milk=100)
-    piece_of_cake({'chocolate': 18, 'milk': 8}, optionals=['milk'], chocolate=300)
+    print(piece_of_cake({'chocolate': 18, 'milk': 8}, chocolate=200, milk=100))
+    print(piece_of_cake({'chocolate': 18, 'milk': 8}, optionals=['milk'], chocolate=300))
