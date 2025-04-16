@@ -21,7 +21,7 @@ def running_2000(func, *args, **kargs):
     func(*args, **kargs)
     end = time.time()
 
-    return end - start
+    return (end - start) * 1000  # Convert to milliseconds
 
 if __name__ == '__main__':
     print(running_2000(zip, [1, 2, 3], [4, 5, 6]))
