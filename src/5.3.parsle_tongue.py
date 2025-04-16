@@ -14,16 +14,15 @@ def read_file_in_chunks():
       Raises:
           FileNotFoundError: If the specified file is not found, exits with code -1.
       """
-    try:
-        path = os.path.abspath('./logo.jpg')
-        with open(path, "rb") as file:
-            chunk_size = 1024
-            chunk = 1
-            while chunk:
-                chunk = file.read(chunk_size)
-                yield chunk
-    except FileNotFoundError:
-        print("file not fuond")
+
+    path = os.path.abspath('./logo.jpg')
+    with open(path, "rb") as file:
+        CHUNK_SIZE = 1024
+        chunk = 1
+        while chunk:
+            chunk = file.read(CHUNK_SIZE)
+            yield chunk
+
 
 def parsle_tongue():
     """
