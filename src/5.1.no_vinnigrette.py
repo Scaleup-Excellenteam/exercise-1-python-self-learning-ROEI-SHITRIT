@@ -29,15 +29,16 @@ def no_vinnigrete(date_input1, date_input2):
         date2 = datetime.strptime(date_input2, "%Y-%m-%d")
     except ValueError:
         print(f"Error: The date '{date_input1}' is not a valid date.")
-        return None
+
 
     if date1 > date2:
         date1, date2 = date2, date1
 
     rand_date = random_date(date1, date2)
-    if rand_date.weekday() == 0:  # checking if the generated date falls on a Monday
+    check_if_monday = 0
+    if rand_date.weekday() == check_if_monday:  # checking if the generated date falls on a Monday
         print("Ain't gettin' no vinaigrette today :(")
-    return None
+
 
 
 
@@ -65,12 +66,17 @@ def random_date(date1, date2):
             date1_epoch = date1.timestamp()
             date2_epoch = date2.timestamp()
 
-            # Converts the dates to epoch time (seconds since 1970) and generates a random timestamp between them.
-            random_time_epoch = random.uniform(date1_epoch, date2_epoch)
-            return datetime.fromtimestamp(random_time_epoch)
-
         except ValueError:
-            continue
+             continue
+
+        # Converts the dates to epoch time (seconds since 1970) and generates a random timestamp between them.
+        random_time_epoch = random.uniform(date1_epoch, date2_epoch)
+        return datetime.fromtimestamp(random_time_epoch)
+
+
 
 if __name__ == '__main__':
-    no_vinnigrete("2023-07-10", "2023-07-10")
+    date1 = input("Enter first date: ")
+    date2 = input("Enter second date: ")
+    no_vinnigrete(date1, date2)
+    #no_vinnigrete("2023-07-10", "2023-07-10")
