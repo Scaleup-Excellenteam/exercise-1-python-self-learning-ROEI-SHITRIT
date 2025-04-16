@@ -1,0 +1,41 @@
+"""    Calculates the total price of ingredients for a recipe based on their quantities and prices."""
+from argparse import ArgumentError
+
+
+def piece_of_cake(prices, optionals=None, **quantities):
+    """
+
+    Args:
+        prices (dict): A dictionary with ingredient names as keys and their price per 100 grams as values.
+        optionals (list, optional): A list of ingredients to exclude from the calculation. Defaults to None.
+        **quantities (dict): The quantities of each ingredient in grams.
+
+    Returns:
+        float: The total price for the ingredients used in the recipe.
+
+    Example:
+        #>>> get_recipe_price({'chocolate': 18, 'milk': 8}, chocolate=200, milk=100)
+        44.0
+
+        #>>> get_recipe_price({'chocolate': 18, 'milk': 8}, optionals=['milk'], chocolate=300)
+        54.0
+    """
+    sum_to_send = 0
+
+    if len(prices) == 0:
+        return 0
+    for key, value in prices.items():
+        if optionals is not None and key in optionals:
+            continue
+
+        if key in quantities:
+            sum_to_send += (quantities[key] / 100) * value
+
+    return sum_to_send
+
+
+
+
+if __name__ == '__main__':
+    print(piece_of_cake({'chocolate': 18, 'milk': 8}, chocolate=200, milk=100))
+    print(piece_of_cake({'chocolate': 18, 'milk': 8}, optionals=['milk'], chocolate=300))
